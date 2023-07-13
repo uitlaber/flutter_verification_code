@@ -282,8 +282,8 @@ class _VerificationCodeState extends State<VerificationCode> {
       listWidget.add(Padding(
         padding: widget.margin,
         child: Container(
-            height: widget.itemWidth,
-            width: widget.itemHeight,
+            height: widget.itemHeight,
+            width: widget.itemWidth,
             margin: EdgeInsets.only(left: left),
             child: _buildInputItem(index)),
       ));
