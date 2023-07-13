@@ -202,6 +202,7 @@ class _VerificationCodeState extends State<VerificationCode> {
             ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
             : null,
         maxLines: 1,
+        textAlignVertical: TextAlignVertical.center,
         maxLength: widget.length - index,
         controller: _listControllerText[index],
         focusNode: _listFocusNode[index],
