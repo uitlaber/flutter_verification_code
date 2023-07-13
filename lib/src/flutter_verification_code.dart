@@ -18,7 +18,10 @@ class VerificationCode extends StatefulWidget {
   final Color? cursorColor;
 
   /// size of box for code
-  final double itemSize;
+  final double itemWidth;
+
+    /// size of box for code
+  final double itemHeight;
 
   /// the color for underline, in case underline color is null it will use primaryColor from Theme
   final Color? underlineColor;
@@ -66,7 +69,8 @@ class VerificationCode extends StatefulWidget {
     this.keyboardType = TextInputType.number,
     this.length = 4,
     this.cursorColor,
-    this.itemSize = 50,
+    this.itemWidth = 50,
+    this.itemHeight = 50,
     this.underlineColor,
     this.underlineUnfocusedColor,
     this.fullBorder = false,
@@ -139,7 +143,7 @@ class _VerificationCodeState extends State<VerificationCode> {
 
   Widget _buildInputItem(int index) {
     final padding =
-        widget.padding ?? EdgeInsets.all(((widget.itemSize * 2) / 10));
+        widget.padding ?? EdgeInsets.all(((widget.itemHeight * 2) / 10));
 
     final underlinedDecoration = InputDecoration(
       fillColor: widget.fillColor,
@@ -274,12 +278,12 @@ class _VerificationCodeState extends State<VerificationCode> {
   List<Widget> _buildListWidget() {
     List<Widget> listWidget = [];
     for (int index = 0; index < widget.length; index++) {
-      double left = (index == 0) ? 0.0 : (widget.itemSize / 10);
+      double left = (index == 0) ? 0.0 : (widget.itemWidth / 10);
       listWidget.add(Padding(
         padding: widget.margin,
         child: Container(
-            height: widget.itemSize,
-            width: widget.itemSize,
+            height: widget.itemWidth,
+            width: widget.itemHeight,
             margin: EdgeInsets.only(left: left),
             child: _buildInputItem(index)),
       ));
