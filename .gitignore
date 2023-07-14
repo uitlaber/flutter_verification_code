@@ -17,3 +17,4 @@ doc/api/
 
 # Flutter generated files
 example/ios/Flutter/flutter_export_environment.sh
+.DS_Store

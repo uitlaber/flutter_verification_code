@@ -62,6 +62,9 @@ class VerificationCode extends StatefulWidget {
   /// padding inside boxes
   final EdgeInsets? padding;
 
+  /// input decoration
+  final InputDecoration? inputDecoration;
+
   const VerificationCode({
     Key? key,
     required this.onCompleted,
@@ -84,6 +87,7 @@ class VerificationCode extends StatefulWidget {
     this.digitsOnly = false,
     this.margin = EdgeInsets.zero,
     this.padding,
+    this.inputDecoration
   }) : super(key: key);
 
   @override
@@ -145,7 +149,7 @@ class _VerificationCodeState extends State<VerificationCode> {
     final padding =
         widget.padding ?? EdgeInsets.all(((widget.itemHeight * 2) / 10));
 
-    final underlinedDecoration = InputDecoration(
+    final underlinedDecoration = widget.inputDecoration ?? InputDecoration(
       fillColor: widget.fillColor,
       filled: widget.fillColor != null ? true : false,
       enabledBorder: UnderlineInputBorder(
@@ -165,7 +169,7 @@ class _VerificationCodeState extends State<VerificationCode> {
       errorMaxLines: 1,
     );
 
-    final fullDecoration = InputDecoration(
+    final fullDecoration = widget.inputDecoration ?? InputDecoration(
       fillColor: widget.fillColor,
       filled: widget.fillColor != null ? true : false,
       enabledBorder: OutlineInputBorder(
